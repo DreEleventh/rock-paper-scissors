@@ -13,7 +13,7 @@ def login_window():
         """Processes the 
         """
         try:
-            file = open("userInformation.txt", 'r')
+            file = open("userInfo.txt", 'r')
             for line in file:
                 if ':' in line:
                     key,value = line.split(':', 1)
@@ -36,9 +36,9 @@ def login_window():
 
     login = tk.Tk()
     login.title("Rock Paper Scissors | Login")
-    login.geometry("350x350")
+    login.geometry("350x300")
     login.resizable(0, 0)
-    login["background"]="#930009"
+    login["background"]="#390009"
 
     username = tk.StringVar()
     password = tk.StringVar()
@@ -46,7 +46,7 @@ def login_window():
     legend = tk.LabelFrame(login, text="Login Page", bg='#390009', fg='gold', width=20, font=("Vardana", 20) )
     legend.grid(row=2, column=0, padx=25, pady=30)
 
-    userName = tk.Label(legend, text="User Name: ", bg='#390009', fg='gold', font=("Vardana", 15))
+    userName = tk.Label(legend, text="Username: ", bg='#390009', fg='gold', font=("Vardana", 15))
     userName.grid(row=2, pady=20, padx=3)
 
     userName_entry = tk.Entry(legend, textvariable=username)
