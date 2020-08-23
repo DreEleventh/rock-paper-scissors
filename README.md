@@ -1,5 +1,7 @@
 # rock-paper-scissors
 
+A simple school project that introduces you to more mid-lavel aspects of tkinter and Python programming concepts. 
+
 Introduction**
 Write a program to allow registered users to log in before they can do the Quiz. To log in, a user must
 correctly enter their UserID (string) and password (string). The user only get three (3) tries to enter their data correctly. After 3-failed attempts they are shut out of the system and your program will exit.
