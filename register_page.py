@@ -27,6 +27,7 @@ def register_window():
                 f.write('%s:%s\n' % (key, value))
             f.close()
             tk.messagebox.showinfo("Information", "Registration Completed")
+            window.quit()
         except ValueError:
             pass
 
