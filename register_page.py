@@ -34,18 +34,18 @@ def register_window():
             f.close()
             # Pop-up box that appears after sucessful rejustration 
             tk.messagebox.showinfo("Information", "Registration Completed")
-            window.quit()
+            reg_window.destroy()
         except ValueError:
             pass
 
 
-    window = tk.Tk()
+    reg_window = tk.Tk()
 
     # Defining the window and some corresponding elements 
-    window.title("Rock-Paper-Scissors | Registration ")
-    window.geometry("350x350")
-    window.resizable(0, 0)
-    window["background"]="#390009"
+    reg_window.title("Rock-Paper-Scissors | Registration ")
+    reg_window.geometry("350x350")
+    reg_window.resizable(0, 0)
+    reg_window["background"]="#390009"
 
     # Defining and tracking variables with StringVar()
     fulname = tk.StringVar()
@@ -53,7 +53,7 @@ def register_window():
     password = tk.StringVar()
     
     # Difining the legend frame that'll hold all the imput fields 
-    legend = tk.LabelFrame(master=window, text="Registration Form", bg="#390009", fg='gold', width=20, font=("Vardana", 20))
+    legend = tk.LabelFrame(master=reg_window, text="Registration Form", bg="#390009", fg='gold', width=20, font=("Vardana", 20))
     legend.grid(row=2, column=0, padx=25, pady=30)
 
     # Difining the fullname label and entry field
@@ -63,7 +63,7 @@ def register_window():
     fulname_entry.grid(row=3, column=1, padx=3, pady=20)
 
     # Difining the username label and entry field
-    username_label = tk.Label(legend, text="User Name: ", bg='#390009', fg='gold', font=("Vardana", 15))
+    username_label = tk.Label(legend, text="Username: ", bg='#390009', fg='gold', font=("Vardana", 15))
     username_label.grid(row=4, column=0, padx=3, pady=20)
     username_entry = tk.Entry(legend, textvariable=username, width=20)
     username_entry.grid(row=4, column=1, padx=3, pady=20)
@@ -78,7 +78,7 @@ def register_window():
     sumbit_bnt = tk.Button(legend, text='Submit', bg='gold', command=registration_button)
     sumbit_bnt.grid(row=6, padx=3, pady=10)
 
-    window.mainloop()
+    reg_window.mainloop()
 
 
 
