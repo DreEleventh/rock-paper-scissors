@@ -2,14 +2,35 @@
 
 import tkinter as tk 
 from tkinter import messagebox
+playerDict={}
 
 def register_window(): 
     """
     Allows for the registration of a usier. 
     The user will be asked to enter their fullname, username, and password    
     """
-    def register_user():
-        pass
+
+    def registration_button():
+        """
+        This sub-function fasilitates the registration if a single user. 
+        """
+        try:
+            fullname_val = fulname.get()
+            name_val = username.get()
+            code_val = password.get()
+            
+            playerDict['fullname'] = fullname_val
+            playerDict['username'] = name_val
+            playerDict['password'] = code_val
+            f = open('userInformation.txt', 'w')
+            for key, value in playerDict.items():
+                f.write('%s:%s\n' % (key, value))
+            f.close()
+            tk.messagebox.showinfo("Information", "Registration Completed")
+        except ValueError:
+            pass
+
+
     window = tk.Tk()
 
     window.title("Rock-Paper-Scissors | Registration ")
@@ -42,7 +63,7 @@ def register_window():
     password_entry = tk.Entry(legend, width=20, textvariable=password, show="*")
     password_entry.grid(row=5, column=1, padx=3, pady=20)
 
-    sumbit_bnt = tk.Button(legend, text='Submit', bg='gold', command="###")
+    sumbit_bnt = tk.Button(legend, text='Submit', bg='gold', command=registration_button)
     sumbit_bnt.grid(row=6, padx=3, pady=10)
 
     window.mainloop()
