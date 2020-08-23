@@ -3,6 +3,9 @@
 
 import tkinter as tk 
 
+# User built modules 
+from register_page import register_window
+
 window = tk.Tk()
 
 # Defining the window and some corresponding elements 
@@ -26,7 +29,7 @@ login_bnt = tk.Button(master=button_frame, text="Login", bg="gold", command="###
 login_bnt.pack(side=tk.RIGHT, padx=10, ipadx=10)
 
 # Defining the register button and its corresponding elements 
-register_bnt = tk.Button(master=button_frame, text="Register", bg="gold", command="###")
+register_bnt = tk.Button(master=button_frame, text="Register", bg="gold", command=register_window)
 register_bnt.pack(side=tk.RIGHT, padx=10, ipadx=10)
 
 window.mainloop()
