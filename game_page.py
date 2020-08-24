@@ -28,6 +28,7 @@ def game_window():
 
         display_img(img)
 
+
     def display_img(img):
         """
         Displays an image in accordance to the option 
@@ -41,7 +42,18 @@ def game_window():
         img = ImageTk.PhotoImage(img)
         player_img.img = img 
         player_img['image'] = img    
-    
+
+
+    def cnt_rounds(): 
+        """Sub function that tracts the rounds played and ends the 
+        game when the player losses or wins 10 times 
+        """
+        global rounds
+        rounds = rounds + 1
+        if player_score == 10 or player_losses == 10: 
+            window.destroy()
+
+
     # Defining the window and some corresponding elements
     window = tk.Tk()
     window.geometry("590x400")
