@@ -12,7 +12,66 @@ computer_losses = 0
 
 images = ['01.png', '02.png', '03.png']
 
+
+def rules(event=None):
+    """
+    Displays the game rules. 
+    """
+   
+    display_rules = """
+                    Rook Paper Scirrors Game Rules
+
+
+    Select one of the 3 options: Rock, Paper or Scissors. Once selected 
+    click the submit button to submit you answer. A pictorial representation
+    of your option will then be dicplayed. You have 10 rounds and the game 
+    will then end.
+                    """
+    window = tk.Tk()
+
+    window.title("Rook Paper Scissors - Rules")
+    window.geometry("550x350")
+    window.resizable(0,0)
+
+    txt= tk.Text(master=window)
+    txt.tag_configure('big', font=('Verdana', 10))
+    
+    txt.insert(tk.END, display_rules, 'big')
+    txt.configure(state='disabled')
+    txt.pack()
+    
+    window.mainloop()
+
 def game_window():
+    
+
+    def submit():
+        """Fuction that displays the players and computers score"""
+        global player_score
+        global computer_score 
+        global ties
+        global player_losses
+        global computer_losses
+        
+        option = optVar.get()
+
+        # Generates a randome number and stores it in variable computer_opt
+        computer_opt = random.randint(1, 3)
+
+        if option == computer_opt:
+                ties = ties + 1 
+                tie_points.config(text = str(ties))
+        elif((option - computer_opt) % 3 == 1):
+            player_score = player_score + 1
+            computer_losses= computer_losses + 1
+            user_points.config(text = str(player_score))
+            comp_losses_cnt.config(text = str(computer_losses))
+        elif ((option - computer_opt) % 3 !=1):
+            computer_score = computer_score + 1
+            player_losses = player_losses + 1
+            comp_points.config(text= str(computer_score))
+            user_losses_cnt.config(text= str(player_losses))
+
 
     def select_option():
         """This sub function that displays the players game selection"""
