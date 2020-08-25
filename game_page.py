@@ -2,6 +2,9 @@ import tkinter as tk
 import random
 from PIL import ImageTk, Image 
 
+import sys 
+import os
+
 player_score = 0 
 computer_score = 0 
 ties = 0 
@@ -42,8 +45,14 @@ def rules(event=None):
     
     window.mainloop()
 
+def re_spring():
+    """Restarts the program when 'Restart is clicked in the file menue
+    """
+    python = sys.executable
+    os.execl(python, python, * sys.argv)
+
 def game_window():
-    
+
 
     def submit():
         """Fuction that displays the players and computers score"""
@@ -73,7 +82,7 @@ def game_window():
             user_losses_cnt.config(text= str(player_losses))
 
 
-    def select_option():
+    def select_image():
         """This sub function that displays the players game selection"""
         # Accepts the users game option selection and assigns it tp a variable
         game_opt = optVar.get()
@@ -85,17 +94,6 @@ def game_window():
         else: 
             img = images[2]
 
-        display_img(img)
-
-
-    def display_img(img):
-        """
-        Displays an image in accordance to the option 
-        the user selected (rock, papaer, scissors)
-
-        Args:
-            img (string): The string representation of the image to be displayed
-        """
         # Displaying the selected image to the user
         img = Image.open(img)
         img = ImageTk.PhotoImage(img)
@@ -141,13 +139,13 @@ def game_window():
     select_option = tk.LabelFrame(window, text="Select option: ", font=('Vardana', 18), bg='#390009', fg="gold",)
     select_option.grid(row=1, pady=30, padx=10)
     # Difining the rock redio button
-    rock = tk.Radiobutton(select_option, text="Rock", font=('Verdana', 12), pady=20, variable=optVar, value=1, bg='#390009', fg="gold", command=select_option)
+    rock = tk.Radiobutton(select_option, text="Rock", font=('Verdana', 12), pady=20, variable=optVar, value=1, bg='#390009', fg="gold", command=select_image)
     rock.grid(row=2, column=0, padx=10)
     # Difining the paper redio button
-    paper=tk.Radiobutton(select_option, text="Paper", font=('Verdana', 12), pady=20, variable=optVar, value=2, bg='#390009', fg="gold", command=select_option)
+    paper=tk.Radiobutton(select_option, text="Paper", font=('Verdana', 12), pady=20, variable=optVar, value=2, bg='#390009', fg="gold", command=select_image)
     paper.grid(row=2, column=1, padx= 10)
     # Difining the scissors redio button
-    scissors=tk.Radiobutton(select_option, text="Scissors", font=('Verdana', 12), pady=20, variable=optVar, value=3, bg='#390009', fg="gold", command=select_option)
+    scissors=tk.Radiobutton(select_option, text="Scissors", font=('Verdana', 12), pady=20, variable=optVar, value=3, bg='#390009', fg="gold", command=select_image)
     scissors.grid(row=2, column=2, padx=10)
     # Difining the submit button
     # Lambda functions allow for the envoking of two funtions when the submut button it pressed
