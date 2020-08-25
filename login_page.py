@@ -3,6 +3,9 @@
 import tkinter as tk 
 from tkinter import messagebox
 
+# Importing user built modules 
+from game_page import game_window
+
 loginDict={}
 
 def login_window():
@@ -32,7 +35,7 @@ def login_window():
             
             # Checks if the information on file matches what the user entered
             if(name==username.get() and code==password.get()):
-                # game_win()
+                game_window()
                 login.destroy()
             else:
                 tk.messagebox.showinfo("ERROR", "Incorrect Username or Password")
